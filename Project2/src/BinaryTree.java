@@ -13,7 +13,7 @@ public class BinaryTree {
 	}
 
 	public boolean isEmpty() {
-		return (root == null)? true:false;
+		return (root == null) ? true : false;
 	}
 
 	public void makeEmpty() {
@@ -61,26 +61,23 @@ public class BinaryTree {
 			root.right = t.root;
 	}
 
-	
 	public static BinaryTree insert(BinaryTree t, Object x) {
 		if (t.isEmpty())
 			return new BinaryTree(x);
-		else 
-			if (((Integer) t.getRootObj()).intValue() < ((Integer) x).intValue()) {
-				t.setRight(insert(t.getRight(), x));
-			} else
-				t.setLeft(insert(t.getLeft(), x));
-			return t;
-		
-		
+		else if (((Integer) t.getRootObj()).intValue() < ((Integer) x).intValue()) {
+			t.setRight(insert(t.getRight(), x));
+		} else
+			t.setLeft(insert(t.getLeft(), x));
+		return t;
+
 	}
-	
-	public static void inorder(BinaryTree t) throws RuntimeException{
-		if(!t.isEmpty()){
+
+	public static void inorder(BinaryTree t) throws RuntimeException {
+		if (!t.isEmpty()) {
 			inorder(t.getLeft());
 			System.out.print(t.getRootObj());
 			inorder(t.getRight());
 		}
 	}
-	
+
 }
