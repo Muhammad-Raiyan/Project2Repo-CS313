@@ -1,3 +1,5 @@
+import java.io.*;
+import java.util.*;
 
 public class BinaryTree {
 	private BinaryNode root;
@@ -11,7 +13,7 @@ public class BinaryTree {
 	}
 
 	public boolean isEmpty() {
-		return root == null;
+		return (root == null)? true:false;
 	}
 
 	public void makeEmpty() {
@@ -59,6 +61,7 @@ public class BinaryTree {
 			root.right = t.root;
 	}
 
+	
 	public static BinaryTree insert(BinaryTree t, Object x) {
 		if (t.isEmpty())
 			return new BinaryTree(x);
@@ -70,5 +73,13 @@ public class BinaryTree {
 		}
 		return t;
 	}
-
+	
+	public static void inorder(BinaryTree t) throws RuntimeException{
+		if(!t.isEmpty()){
+			inorder(t.getLeft());
+			System.out.println(t.getRootObj());
+			inorder(t.getRight());
+		}
+	}
+	
 }

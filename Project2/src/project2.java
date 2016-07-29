@@ -7,16 +7,22 @@ public class project2 {
 	public static void main(String[] args) throws IOException {
 
 		BufferedReader in = new BufferedReader(new FileReader(args[0]));
+		BinaryTree t = new BinaryTree();
 		String line;
-
-		while ((line = in.readLine()) != null) {
+		
+		for(int i=0; i<5; i++){
+			BinaryTree.insert(t, new Integer(5));
+		}
+		
+		BinaryTree.inorder(t);
+		/*while ((line = in.readLine()) != null) {
 			String temp[] = line.split(" ");
 			
-			for(String x: temp)
-				System.out.println(x);
-		}
+			
+		}*/
 		
 		
 	}
-
+	
+	
 }
