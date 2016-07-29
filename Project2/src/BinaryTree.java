@@ -6,7 +6,7 @@ public class BinaryTree {
 		root = null;
 	}
 
-	public BinaryTree(int x) {
+	public BinaryTree(Object x) {
 		root = new BinaryNode(x);
 	}
 
@@ -18,18 +18,55 @@ public class BinaryTree {
 		root = null;
 	}
 
-	public BinaryNode getRoot() throws RuntimeException {
+	public Object getRootObj() throws RuntimeException {
 		if (root == null)
 			throw new RuntimeException("EmptyTree");
 		else
-			return root;
+			return root.element;
 	}
 
-	public static BinaryTree insert(BinaryTree t, int x) {
+	public BinaryTree getLeft() throws RuntimeException {
+		if (root == null)
+			throw new RuntimeException("Empty Tree");
+		else {
+			BinaryTree t = new BinaryTree();
+			t.root = root.left;
+			return t;
+		}
+	}
+
+	public void setLeft(BinaryTree t) throws RuntimeException {
+		if (root == null)
+			throw new RuntimeException("Empty Tree");
+		else
+			root.left = t.root;
+	}
+
+	public BinaryTree getRight() throws RuntimeException {
+		if (root == null)
+			throw new RuntimeException("Empty Tree");
+		else {
+			BinaryTree t = new BinaryTree();
+			t.root = root.right;
+			return t;
+		}
+	}
+
+	public void setRight(BinaryTree t) throws RuntimeException {
+		if (root == null)
+			throw new RuntimeException("Empty Tree");
+		else
+			root.right = t.root;
+	}
+
+	public static BinaryTree insert(BinaryTree t, Object x) {
 		if (t.isEmpty())
 			return new BinaryTree(x);
 		else {
-			
+			if (((Integer) t.getRootObj()).intValue() < ((Integer) x).intValue()) {
+				t.setRight(insert(t.getRight(), x));
+			} else
+				t.setLeft(insert(t.getLeft(), x));
 		}
 		return t;
 	}

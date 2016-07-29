@@ -1,19 +1,21 @@
 
 public class BinaryNode {
-	int element;
+	Object element;
 	BinaryNode left, right;
-	
+
 	public BinaryNode() {
-		this(-1, null, null);
+		this(null);
 	}
-	
-	public BinaryNode(int e){
+
+	public BinaryNode(Object e) {
 		this(e, null, null);
 	}
-	
-	public BinaryNode(int e, BinaryNode ln, BinaryNode rn){
+
+	public BinaryNode(Object e, BinaryNode ln, BinaryNode rn) {
 		element = e;
 		left = ln;
 		right = rn;
 	}
+
+
 }
