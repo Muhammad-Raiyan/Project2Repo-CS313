@@ -65,13 +65,14 @@ public class BinaryTree {
 	public static BinaryTree insert(BinaryTree t, Object x) {
 		if (t.isEmpty())
 			return new BinaryTree(x);
-		else {
+		else 
 			if (((Integer) t.getRootObj()).intValue() < ((Integer) x).intValue()) {
 				t.setRight(insert(t.getRight(), x));
 			} else
 				t.setLeft(insert(t.getLeft(), x));
-		}
-		return t;
+			return t;
+		
+		
 	}
 	
 	public static void inorder(BinaryTree t) throws RuntimeException{

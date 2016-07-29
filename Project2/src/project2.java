@@ -11,7 +11,7 @@ public class project2 {
 		String line;
 		
 		for(int i=1; i<5; i++){
-			BinaryTree.insert(t, i);
+			BinaryTree.insert(t, new Integer(i));
 		}
 		
 		BinaryTree.inorder(t);
