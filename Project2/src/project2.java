@@ -10,8 +10,8 @@ public class project2 {
 		BinaryTree t = new BinaryTree();
 		String line;
 		
-		for(int i=0; i<5; i++){
-			BinaryTree.insert(t, new Integer(5));
+		for(int i=1; i<5; i++){
+			BinaryTree.insert(t, i);
 		}
 		
 		BinaryTree.inorder(t);

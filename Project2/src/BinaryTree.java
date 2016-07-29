@@ -77,7 +77,7 @@ public class BinaryTree {
 	public static void inorder(BinaryTree t) throws RuntimeException{
 		if(!t.isEmpty()){
 			inorder(t.getLeft());
-			System.out.println(t.getRootObj());
+			System.out.print(t.getRootObj());
 			inorder(t.getRight());
 		}
 	}
