@@ -1,6 +1,5 @@
 
 import java.io.*;
-import java.util.*;
 
 public class project2 {
 
@@ -9,26 +8,22 @@ public class project2 {
 		BufferedReader in = new BufferedReader(new FileReader(args[0]));
 		BinaryTree t = new BinaryTree();
 		String line;
-			
+		int count = 0;
+
 		while ((line = in.readLine()) != null) {
 			String temp[] = line.split(" ");
-			
-			for(int i=0; i<temp.length; i++){
+
+			for (int i = 0; i < temp.length; i++) {
 				t = BinaryTree.insert(t, new Integer(temp[i]));
 			}
+			
+			System.out.println("Data set #" + ++count);
+			BinaryTree.rightThread(t.getRoot(), null);
+			System.out.print("Non-Recursuve traversal: ");
+			BinaryTree.itrTraversal(t);
+			t.makeEmpty();
 		}
-		
-		
-		BinaryTree.rightThread(t.getRoot(), null);
-		/*t= t.getLeft();
-		
-		t = t.getLeft();
-		//System.out.println(t.getRight().getRootObj());
-*/		
-		BinaryTree.inorder(t);
+		in.close();
 	}
-	
-	
-	
-}
 
+}

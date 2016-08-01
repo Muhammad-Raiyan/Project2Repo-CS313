@@ -1,5 +1,3 @@
-import java.io.*;
-import java.util.*;
 
 public class BinaryTree {
 	private BinaryNode root;
@@ -26,10 +24,11 @@ public class BinaryTree {
 		else
 			return root.element;
 	}
-	
-	public BinaryNode getRoot(){
+
+	public BinaryNode getRoot() {
 		return root;
 	}
+
 	public BinaryTree getLeft() throws RuntimeException {
 		if (root == null)
 			throw new RuntimeException("Empty Tree");
@@ -64,7 +63,6 @@ public class BinaryTree {
 			root.right = t.root;
 	}
 
-	
 	public static BinaryTree insert(BinaryTree t, Object x) {
 		if (t.isEmpty())
 			return new BinaryTree(x);
@@ -75,50 +73,49 @@ public class BinaryTree {
 				t.setLeft(insert(t.getLeft(), x));
 			return t;
 		}
-		
+
 	}
-	public static BinaryNode leftMost(BinaryNode node){
-		while(node != null && node.left!= null)
+
+	public static BinaryNode leftMost(BinaryNode node) {
+		while (node.left != null && node != null)
 			node = node.left;
 		return node;
 	}
-	public static void inorder(BinaryTree t) throws RuntimeException{
-		/*if(!t.isEmpty()){
-			inorder(t.getLeft());
-			System.out.println(t.getRootObj());
-			inorder(t.getRight());
-		}*/
-		if(t.isEmpty()) return;
-		BinaryNode current = t.getRoot();
-		current = leftMost(current.left);
+
+	public static void itrTraversal(BinaryTree t) throws RuntimeException {
 		
-		while(current != null){
-			System.out.println(current.element);
-			
-			if(current.thread==true) current = current.right;
-			
+		if (t.isEmpty())
+			return;
+		BinaryNode current = t.getRoot();
+		current = leftMost(current);
+
+		while (current != null) {
+			System.out.print(current.element + " ");
+
+			if (current.thread == true)
+				current = current.right;
+
 			else
 				current = leftMost(current.right);
-			
+
 		}
-		
+		System.out.println("");
+
 	}
-	
-	public static void rightThread(BinaryNode n, BinaryNode p){
-		if(n == null) return;
-		if(n.left != null){
-			rightThread(n.left, p);
+
+	public static void rightThread(BinaryNode n, BinaryNode p) {
+		if (n.left != null) {
+			rightThread(n.left, n);
 		}
-		if(n.right != null){
+		if (n.right != null) {
 			rightThread(n.right, p);
-		}
-		else {
-			//\System.out.println(n.right.element + "->" + p.element);
+		} else {
 			n.right = p;
 			n.thread = true;
-			
+			if (n.right != null)
+				System.out.println(n.element + "->" + p.element);
+
 		}
 	}
-	
-	
+
 }
