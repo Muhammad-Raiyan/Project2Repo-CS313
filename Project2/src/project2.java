@@ -13,15 +13,22 @@ public class project2 {
 		while ((line = in.readLine()) != null) {
 			String temp[] = line.split(" ");
 			
-			for(int i=0; i<5; i++){
-				t= BinaryTree.insert(t, new Integer(i));
+			for(int i=0; i<temp.length; i++){
+				t = BinaryTree.insert(t, new Integer(temp[i]));
 			}
 		}
 		
+		
+		BinaryTree.rightThread(t.getRoot(), null);
+		/*t= t.getLeft();
+		
+		t = t.getLeft();
+		//System.out.println(t.getRight().getRootObj());
+*/		
 		BinaryTree.inorder(t);
-		
-		
 	}
 	
 	
+	
 }
+

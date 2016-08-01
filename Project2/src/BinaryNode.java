@@ -2,6 +2,7 @@
 public class BinaryNode {
 	Object element;
 	BinaryNode left, right;
+	boolean thread = false;
 
 	public BinaryNode() {
 		this(null);
