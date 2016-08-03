@@ -12,11 +12,11 @@ public class project2 {
 
 		BufferedReader in = new BufferedReader(new FileReader(args[0]));
 		BinaryTree t = new BinaryTree();
-		String line;
-		int count = 0;
+		String line;	//single line from text file is stored as string
+		int count = 0;	// count number of data sets
 
 		while ((line = in.readLine()) != null) {
-			String temp[] = line.split(" ");
+			String temp[] = line.split(" ");	//split each number and store to temp[]
 
 			for (int i = 0; i < temp.length; i++) {
 				t = BinaryTree.insert(t, new Integer(temp[i]));
