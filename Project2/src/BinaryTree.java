@@ -1,15 +1,17 @@
 
 public class BinaryTree {
 	private BinaryNode root;
-
+	
+	// Empty constructor
 	public BinaryTree() {
 		root = null;
 	}
-
+	
+	// One parameter constructor 
 	public BinaryTree(Object x) {
 		root = new BinaryNode(x);
 	}
-
+	
 	public boolean isEmpty() {
 		return root == null;
 	}
